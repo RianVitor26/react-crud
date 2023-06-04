@@ -1,7 +1,7 @@
-
+import { AppRouter } from "./routes"
 
 export const App = () => {
   return (
-    <h1>Hello</h1>
+    <AppRouter/>
   )
 }
