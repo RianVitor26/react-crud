@@ -2,7 +2,13 @@ import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyles = createGlobalStyle`
     :root{
-        --bg-default: #fafafa;
+        --bg-default: whitesmoke;
+        --primary: #8257e5;
+        --valid-bg: #57e57b;
+        --form-bg: white;
+        --label: #353535;
+        --border-color: lightgray;
+        --outline-color: gray;
     }
 
     *{ 
@@ -18,6 +24,6 @@ export const GlobalStyles = createGlobalStyle`
         width: 100%;
         height: 100vh;
         background: var(--bg-default);
-        font-family: 'Raleway', 'Poppins', sans-serif;
+        font-family: 'Poppins', 'Raleway', sans-serif;
     }
 `;

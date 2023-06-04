@@ -1,9 +1,13 @@
-import { Container } from './styles'
+import { Container, Main, Title } from './styles'
+import { FormComponent } from '../../components/Form'
 
 export const Home = () => {
   return (
-      <Container>
-          <h1>Home</h1>
+    <Container>
+      <Main>
+        <Title>Sistema de cadastro</Title>
+        <FormComponent />
+      </Main>
     </Container>
-  )
+  );
 }

@@ -4,3 +4,20 @@ export const Container = styled.div`
     width: 100%;
     height: 100vh;
 ` 
+export const Main = styled.main`
+    width: 100%;
+    max-width: 1000px;
+    height: 100%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+` 
+
+export const Title = styled.h1`
+  text-align: center;
+  padding: 2rem;
+  font-size: clamp(1.4rem, 1.8rem, 2.2rem);
+  font-family: "Raleway";
+  color: #202020;
+`; 
