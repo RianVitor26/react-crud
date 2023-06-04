@@ -18,5 +18,6 @@ export const GlobalStyles = createGlobalStyle`
         width: 100%;
         height: 100vh;
         background: var(--bg-default);
+        font-family: 'Raleway', 'Poppins', sans-serif;
     }
 `;
