@@ -2,11 +2,12 @@ import styled from 'styled-components';
 
 export const FormContainer = styled.div`
     width: 90%;
-    background: var(--form-bg);
+    background: var(--containers-bg);
     padding: 5rem;
     border-radius: 1rem;
     box-shadow: 0rem 0rem 2rem .1rem #dddddd;
     position: relative;
+    margin-bottom: 3rem;
 `
 export const Form = styled.form`
  width: 100%;

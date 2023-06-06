@@ -5,7 +5,7 @@ export const GlobalStyles = createGlobalStyle`
         --bg-default: whitesmoke;
         --primary: #8257e5;
         --valid-bg: #57e57b;
-        --form-bg: white;
+        --containers-bg: white;
         --label: #353535;
         --border-color: lightgray;
         --outline-color: gray;

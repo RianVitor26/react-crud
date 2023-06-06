@@ -16,8 +16,16 @@ export const Main = styled.main`
 
 export const Title = styled.h1`
   text-align: center;
-  padding: 2rem;
+  padding-top: 2rem;
+  padding-bottom: 1rem;
   font-size: clamp(1.4rem, 1.8rem, 2.2rem);
   font-family: "Raleway";
   color: #202020;
+`; 
+export const Subtitle = styled.h2`
+  text-align: center;
+  padding-bottom: 2rem;
+  font-size: clamp(1.2rem, 1.6rem, 2rem);
+  font-family: "Poppins";
+  color: #3b3b3b;
 `; 
