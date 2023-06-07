@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const TableContainer = styled.div`
   width: 90%;
@@ -16,9 +16,9 @@ export const Table = styled.table`
   min-width: 60rem;
   border-collapse: collapse;
 `;
-export const Thead = styled.thead`
 
-`;
+export const Thead = styled.thead``;
+
 export const Th = styled.th`
   font-size: clamp(1.4rem, 1.6rem, 2.2rem);
   color: var(--label);
@@ -32,6 +32,28 @@ export const Tr = styled.tr`
 export const Td = styled.td`
   font-size: clamp(1rem, 1.2rem, 1.8rem);
   text-align: center;
-  padding: 2rem .5rem;
+  padding: 2rem 0.5rem;
 `;
 
+
+export const NotFoundContainer = styled.div`
+  width: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  img {
+    width: 50%;
+    height: 50%;
+    min-width: 5rem;
+    min-height: 5rem;
+    object-fit: contain;
+  }
+
+  h2 {
+    font-size: clamp(1.4rem, 1.6rem, 2rem);
+    color: var(--label);
+    text-align: center;
+  }
+`;
