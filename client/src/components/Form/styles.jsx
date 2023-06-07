@@ -8,12 +8,15 @@ export const FormContainer = styled.div`
     box-shadow: 0rem 0rem 2rem .1rem #dddddd;
     position: relative;
     margin-bottom: 3rem;
-`
+     @media only screen and (max-width: 400px) {padding: 0; padding: 2}
+`;
 export const Form = styled.form`
  width: 100%;
  height: 100%;
  display: flex;
  flex-wrap: wrap;
+
+
 `
 export const InputArea = styled.div`
 display: flex;

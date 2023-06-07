@@ -9,10 +9,11 @@ export const FooterComponent = () => {
   return (
     <FooterContainer>
       <SocialContainer>
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" />
-        <a target="_blank" href="https://github.com/RianVitor26"></a>
+        <a target="_blank" href="https://github.com/RianVitor26">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" />
+        </a>
 
-        <a  
+        <a
           target="_blank"
           href="https://www.linkedin.com/in/rian-vitor-dos-santos-de-almeida-a036aa202/"
         >
@@ -22,7 +23,7 @@ export const FooterComponent = () => {
       <LicenseContainer>
         <LicenseText>
           Projeto desenvolvido para matéria de Front-End na Universidade
-          Unisales
+          Unisales de Vitória
         </LicenseText>
       </LicenseContainer>
     </FooterContainer>
