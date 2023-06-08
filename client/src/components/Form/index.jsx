@@ -24,6 +24,8 @@ export const FormComponent = () => {
     setNome("");
     setCargaHoraria("");
     setPeso("");
+
+    window.location.reload()
   };
   
   return (

@@ -11,7 +11,7 @@ import {
   RemoveIcon,
   ToolsIcon,
   CancelButton,
-  SaveButton
+  SaveButton,
 } from "./styles";
 
 export const TableComponent = () => {
@@ -20,7 +20,8 @@ export const TableComponent = () => {
   const [editedData, setEditedData] = useState({});
 
   const getMaterias = () => {
-    const listaDeMaterias = JSON.parse(localStorage.getItem("materias")) || [];
+    const listaDeMaterias =
+      JSON.parse(localStorage.getItem("materias")) || [];
     setTableData(listaDeMaterias);
   };
 
@@ -41,10 +42,19 @@ export const TableComponent = () => {
     const materiaEditada = tableData.find(
       (materia) => materia.id === materiaId
     );
-    materiaEditada.nome = editedData[materiaId]?.nome || materiaEditada.nome;
+
+    materiaEditada.nome =
+      editedData[materiaId]?.nome !== undefined
+        ? editedData[materiaId]?.nome
+        : materiaEditada.nome;
     materiaEditada.cargaHoraria =
-      editedData[materiaId]?.cargaHoraria || materiaEditada.cargaHoraria;
-    materiaEditada.peso = editedData[materiaId]?.peso || materiaEditada.peso;
+      editedData[materiaId]?.cargaHoraria !== undefined
+        ? editedData[materiaId]?.cargaHoraria
+        : materiaEditada.cargaHoraria;
+    materiaEditada.peso =
+      editedData[materiaId]?.peso !== undefined
+        ? editedData[materiaId]?.peso
+        : materiaEditada.peso;
     localStorage.setItem("materias", JSON.stringify(tableData));
     setEditingId(null);
     setEditedData({});
@@ -54,11 +64,15 @@ export const TableComponent = () => {
     const trElement = event.target.closest("tr");
     const materiaId = trElement.getAttribute("data-id");
     trElement.remove();
-    const listaDeMaterias = JSON.parse(localStorage.getItem("materias")) || [];
+    const listaDeMaterias =
+      JSON.parse(localStorage.getItem("materias")) || [];
     const updatedListaDeMaterias = listaDeMaterias.filter(
       (materia) => materia.id !== materiaId
     );
-    localStorage.setItem("materias", JSON.stringify(updatedListaDeMaterias));
+    localStorage.setItem(
+      "materias",
+      JSON.stringify(updatedListaDeMaterias)
+    );
   };
 
   const handleFieldChange = (materiaId, field, value) => {
@@ -66,7 +80,7 @@ export const TableComponent = () => {
       ...prevData,
       [materiaId]: {
         ...prevData[materiaId],
-        [field]: value,
+        [field]: value === "" ? null : value,
       },
     }));
   };
@@ -96,7 +110,11 @@ export const TableComponent = () => {
                   {editingId === materia.id ? (
                     <input
                       type="text"
-                      value={editedData[materia.id]?.nome || materia.nome}
+                      value={
+                        editedData[materia.id]?.nome !== undefined
+                          ? editedData[materia.id]?.nome
+                          : materia.nome
+                      }
                       onChange={(event) =>
                         handleFieldChange(
                           materia.id,
@@ -106,7 +124,7 @@ export const TableComponent = () => {
                       }
                     />
                   ) : (
-                    materia.nome
+                    materia.nome || ""
                   )}
                 </Td>
                 <Td>
@@ -114,8 +132,9 @@ export const TableComponent = () => {
                     <input
                       type="text"
                       value={
-                        editedData[materia.id]?.cargaHoraria ||
-                        materia.cargaHoraria
+                        editedData[materia.id]?.cargaHoraria !== undefined
+                          ? editedData[materia.id]?.cargaHoraria
+                          : materia.cargaHoraria
                       }
                       onChange={(event) =>
                         handleFieldChange(
@@ -126,14 +145,18 @@ export const TableComponent = () => {
                       }
                     />
                   ) : (
-                    materia.cargaHoraria
+                    materia.cargaHoraria || ""
                   )}
                 </Td>
                 <Td>
                   {editingId === materia.id ? (
                     <input
                       type="text"
-                      value={editedData[materia.id]?.peso || materia.peso}
+                      value={
+                        editedData[materia.id]?.peso !== undefined
+                          ? editedData[materia.id]?.peso
+                          : materia.peso
+                      }
                       onChange={(event) =>
                         handleFieldChange(
                           materia.id,
@@ -143,7 +166,7 @@ export const TableComponent = () => {
                       }
                     />
                   ) : (
-                    materia.peso
+                    materia.peso || ""
                   )}
                 </Td>
                 <Td>
@@ -152,7 +175,9 @@ export const TableComponent = () => {
                       <SaveButton onClick={() => handleSaveEdit(materia.id)}>
                         Salvar
                       </SaveButton>
-                      <CancelButton onClick={handleCancelEdit}>Cancelar</CancelButton>
+                      <CancelButton onClick={handleCancelEdit}>
+                        Cancelar
+                      </CancelButton>
                     </>
                   ) : (
                     <>
