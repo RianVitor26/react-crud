@@ -1,54 +1,80 @@
 import { FormContainer, Form, InputArea, Button } from "./styles";
+import { useState } from "react";
+import { v4 as uuidv4 } from "uuid";
 
 export const FormComponent = () => {
+  const [nome, setNome] = useState("");
+  const [cargaHoraria, setCargaHoraria] = useState("");
+  const [peso, setPeso] = useState("");
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const listaDeMaterias = JSON.parse(localStorage.getItem("materias")) || [];
+
+    const materias = {
+      id: uuidv4().slice(0,5),
+      nome: nome,
+      cargaHoraria: cargaHoraria,
+      peso: peso,
+    };
+
+    listaDeMaterias.push(materias);
+    localStorage.setItem("materias", JSON.stringify(listaDeMaterias));
+
+    setNome("");
+    setCargaHoraria("");
+    setPeso("");
+  };
+  
   return (
     <FormContainer>
-      <Form>
+      <Form onSubmit={handleSubmit}>
         <InputArea>
-          <label name="id" htmlFor="id">ID</label>
-          <input
-            type="number"
-            id="id"
-            placeholder="ID"
-            min={1}
-            max={10}
-            disabled
-          />
-        </InputArea>
-        <InputArea>
-          <label name="name" htmlFor="name">Nome</label>
+          <label nome="nome" htmlFor="nome">
+            Nome
+          </label>
           <input
             type="text"
-            id="name"
+            id="nome"
             placeholder="Nome da matéria"
             minLength={1}
             maxLength={50}
             required
+            value={nome}
+            onChange={(event) => setNome(event.target.value)}
           />
         </InputArea>
         <InputArea>
-          <label name="workload" htmlFor="workload">CG</label>
+          <label nome="cargaHoraria" htmlFor="cargaHoraria">
+            CG
+          </label>
           <input
             type="text"
-            id="workload"
+            id="cargaHoraria"
             placeholder="Carga horária da matéria"
             minLength={1}
             maxLength={5}
             required
+            value={cargaHoraria}
+            onChange={(event) => setCargaHoraria(event.target.value)}
           />
         </InputArea>
         <InputArea>
-          <label name="weight" htmlFor="weight">Peso</label>
+          <label nome="peso" htmlFor="peso">
+            Peso
+          </label>
           <input
             type="text"
-            id="weight"
+            id="peso"
             placeholder="Peso da matéria"
             minLength={1}
             maxLength={2}
             required
+            value={peso}
+            onChange={(event) => setPeso(event.target.value)}
           />
         </InputArea>
-        <Button>Cadastrar</Button>
+        <Button type="submit">Cadastrar</Button>
       </Form>
     </FormContainer>
   );

@@ -15,8 +15,6 @@ export const Form = styled.form`
  height: 100%;
  display: flex;
  flex-wrap: wrap;
-
-
 `
 export const InputArea = styled.div`
 display: flex;
